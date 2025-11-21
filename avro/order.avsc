@@ -1,11 +1,10 @@
 {
   "type": "record",
   "name": "Order",
-  "namespace": "com.example",
+  "namespace": "com.assignment",
   "fields": [
     {"name": "orderId", "type": "string"},
     {"name": "product", "type": "string"},
-    {"name": "price", "type": "double"},
-    {"name": "timestamp", "type": "long"}
+    {"name": "price", "type": "float"}
   ]
 }
