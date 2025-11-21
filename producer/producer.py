@@ -1,12 +1,18 @@
 import random
 import json
+import os
 from confluent_kafka import SerializingProducer
 from fastavro import parse_schema, schemaless_writer
 from io import BytesIO
 
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SCHEMA_PATH = os.path.join(BASE_DIR, "..", "avro", "order.avsc")
+
 # Load Avro schema
-import json
-schema = json.load(open("../avro/order.avsc"))
+with open(SCHEMA_PATH, "r") as f:
+    schema = json.load(f)
+
 parsed_schema = parse_schema(schema)
 
 def avro_serializer(obj, ctx):
